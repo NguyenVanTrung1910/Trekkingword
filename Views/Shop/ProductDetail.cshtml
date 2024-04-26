@@ -1,0 +1,166 @@
+﻿@model TourWeb.Models.Product
+<!-- product-details -->
+<section class="product-details">
+    <div class="auto-container">
+        <div class="basic-details">
+            <div class="row clearfix">
+                <div class="image-column col-lg-6 col-md-12 col-sm-12">
+                    <div class="inner">
+                        <div class="carousel-box">
+                            <div class="slider-box">
+                                <div class="shop-single-carousel" id="shop-single-carousel">
+                                    <!--Slide Block-->
+                                    <div class="slide-block">
+                                        <div class="inner-box">
+                                            <div class="image"><img src="/images/@Model.ImagesSpecial" alt="" style="height:595px;width:470px"></div>
+                                            <a href="/images/@Model.ImagesSpecial" class="zoom-btn lightbox-image"><img src="/images/icons/zoom-2.svg" alt=""></a>
+                                        </div>
+                                    </div>
+                                    @foreach(var image in ViewBag.Image)
+                                    {
+                                        <div class="slide-block">
+                                            <div class="inner-box">
+                                                <div class="image"><img src="/images/@image.ImagePath" alt="" style="height:595px;width:470px"></div>
+                                                <a href="/images/@image.ImagePath" class="zoom-btn lightbox-image"><img src="/images/icons/zoom-2.svg" alt="" ></a>
+                                            </div>
+                                        </div>
+                                    }
+                                    
+
+
+                                </div>
+                            </div>
+                            <div class="pagers-box">
+                                <div class="pager-two clearfix">
+                                    @{
+                                        int i = 1;
+                                    }
+                                    <a href="" class="pager-item " data-slide-index="0"><div class="image"><img src="/images/@Model.ImagesSpecial" alt="" style="height:70px;width:70px"></div></a>
+                                    @foreach (var image in ViewBag.Image)
+                                    {
+
+                                        <a href="" class="pager-item " data-slide-index="@i"><div class="image"><img src="/images/@image.ImagePath" alt="" style="height:70px;width:70px"></div></a>
+                                        i++;
+                                    }
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="content-column col-lg-6 col-md-12 col-sm-12">
+                    <div class="product-details-content">
+                        <div class="avail"><span>In Stock</span></div>
+                        <h4>@Model.Name</h4>
+                        <ul class="rating-box clearfix">
+                            <li><i class="fas fa-star"></i></li>
+                            <li><i class="fas fa-star"></i></li>
+                            <li><i class="fas fa-star"></i></li>
+                            <li><i class="fas fa-star"></i></li>
+                            <li><i class="fas fa-star empty"></i></li>
+                        </ul>
+                        <div class="reviews"><a href="#">(@Model.Review Review)</a></div>
+                        <div class="item-price"><span>$@Model.Price</span></div>
+                        <div class="share"><a href="shop-single.html"><i class="flaticon-share-1"></i></a></div>
+                        <div class="text">@Model.Detail</div>
+                        <div class="color-range clearfix">
+                            <div class="c-title">Color :</div>
+                            <div class="colors clearfix"><span class="clr clr-one"></span><span class="clr clr-two"></span><span class="clr clr-three"></span><span class="clr clr-four"></span></div>
+                        </div>
+                        <div class="other-options clearfix">
+                            <div class="quantity-box">
+                                <div class="item-quantity">
+                                    <input class="qty-spinner" type="text" value="1" name="quantity">
+                                </div>
+                            </div>
+                            <div class="link-box">
+                                <a href ="/shop/addCart/@Model.Id">
+                                    <button type="button" class="theme-btn btn-style-two"><span><i class="far fa-shopping-cart"></i> &ensp; Add To Cart</span></button>
+                                </a>
+                                <a href ="/shop/addWish/@Model.Id">
+                                    <button type="button" class="theme-btn add-wishlist" ><span><i class="far fa-heart"></i> &ensp; Add to wishlist</span></button>
+
+                                </a>
+                            </div>
+                        </div>
+                        <div class="product-cat"><strong>Categories :</strong> <a href="#">Bags</a>, <a href="#">Travel Bags</a>, <a href="#">Tracking Bags</a></div>
+                        <div class="product-cat tags"><strong>Tags :</strong> <a href="#">Bags</a>, <a href="#">Travel</a>, <a href="#">Tracking</a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="product-description">
+            <div class="tabs-box">
+                <div class="tab-btn-box centred">
+                    <ul class="tab-btns tab-buttons">
+                        <li class="tab-btn active-btn" data-tab="#tab-1">Description</li>
+                    </ul>
+                </div>
+                <div class="tabs-content">
+                    <div class="tab active-tab" id="tab-1">
+                        <div class="text text-content">
+                            <h5>Product Description</h5>
+                            <p>@Model.Description</p>
+                            <h5>Product Features</h5>
+                            <ul>
+                                @foreach (var a in ViewBag.Feature.Feature.Split('.'))
+                                {
+                                    <li>@a</li>
+                                }
+                                
+                            </ul>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- product-details end -->
+<!--Related Products Section-->
+<section class="products-section related-prod">
+    <div class="floated-icon left"><img src="/images/resource/stones-left.svg" alt="" title=""></div>
+    <div class="auto-container">
+
+        <div class="title-box centered">
+            <h2><span>Related Product</span></h2>
+        </div>
+        <div class="carousel-box">
+            <div class="rel-prod-carousel owl-theme owl-carousel">
+                <!--Block-->
+                @foreach(var product in ViewBag.Product)
+                {
+                    <div class="prod-block">
+                    <div class="inner-box">
+                        <div class="why-block">
+                            <div class="image-box">
+                                <div class="image"><a href="#"><img src="/images/@product.ImagesSpecial" alt=""></a></div>
+                                <div class="hvr-box">
+                                    <div class="hvr-inner">
+                                        <div class="hvr-content">
+                                            <div class="link"><a href="/shop/addcart/@product.Id" class="theme-btn"><i class="far fa-shopping-cart"></i> Add To Cart</a></div>
+                                            <div class="link"><a href="/shop/ProductDetail/@product.Id" class="theme-btn"><i class="far fa-bars"></i> Details</a></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="add-fav"><a href="/shop/addWish/@product.Id" class="theme-btn"><i class="far fa-heart"></i></a></div>
+                            </div>
+                            <div class="lower-box">
+                                <h5><a href="#">@product.Name</a></h5>
+                                <div class="price"><span>$@product.Price</span></div>
+                            </div>
+                        </div>
+
+                    </div>
+                    </div>
+                }
+                
+
+               
+
+            </div>
+        </div>
+    </div>
+</section>
+

@@ -1,0 +1,99 @@
+﻿@model List<TourWeb.Models.CartDetail>
+@inject Microsoft.AspNetCore.Http.IHttpContextAccessor access
+    
+<div class="cart-sidebar">
+    <div class="cart-side-inner">
+        <div class="cart-side-header">
+            <div class="closer-btn"><span>Close</span></div>
+            <h5>Shopping Cart</h5>
+        </div>
+        <div class="prod-box">
+            @if (access.HttpContext.Session.GetString("name") == null)
+            {
+                if (ViewBag.Cart != null)
+                {
+                    foreach (var a in ViewBag.Cart)
+                    {
+                        @foreach (var pro in ViewBag.Product)
+                        {
+                            if (pro.Id == a.ProductId)
+                            {
+                                <div class="prod-block">
+                                    <div class="prod-inner">
+                                        <div class="prod-thumb"><a href="#"><img src="/images/@pro.ImagesSpecial" alt=""></a></div>
+                                        <div class="remove-item"><a href="/shop/removeCart/@pro.Id"><i class="far fa-times"></i></a></div>
+                                        <div class="prod-title"><a href="#">@pro.Name</a></div>
+                                        <div class="quantity-box">
+                                            <div class="item-quantity ">
+                                                <input class="qty-spinner quantity1" type="text" value="@a.Quantity" name="quantity">
+                                            </div>
+                                        </div>
+                                        <div class="calculations">1 x <span class="n-price1">$@pro.Price</span></div>
+                                    </div>
+                                </div>
+                            }
+                        }
+                    }
+
+
+                }
+                else
+                {
+                    <h1>No Product</h1>
+                }
+
+
+            }
+            else
+            {
+                
+                foreach (var a in Model)
+                {
+                    @foreach (var pro in ViewBag.Product)
+                    {
+                        if (a.Carts != null)
+                        {
+                            if (pro.Id == a.Carts.AccountId)
+                            {
+                                <div class="prod-block">
+                                    <div class="prod-inner">
+                                        <div class="prod-thumb"><a href="#"><img src="/images/@pro.ImagesSpecial" alt=""></a></div>
+                                        <div class="remove-item"><a href="/shop/removeCart/@a.Id"><i class="far fa-times"></i></a></div>
+                                        <div class="prod-title"><a href="#">@pro.Name</a></div>
+                                        <div class="quantity-box">
+                                            <div class="item-quantity">
+                                                <input class="qty-spinner quantity1" type="text" value="@a.Quantity" name="quantity">
+                                            </div>
+                                        </div>
+                                        <div class="calculations">1 x <span class="n-price1">$@pro.Price</span></div>
+                                    </div>
+                                </div>
+                            }
+                        }
+                    }
+                }
+            }
+        </div>
+    </div>
+    <div class="lower-content">
+        <div class="count clearfix">
+            <span class="ttl" >Subtotal</span>
+            <span class="dtl" id="total1"></span>
+        </div>
+        <div class="links clearfix">
+            <div class="left"><a href="/shop/shopCart" class="theme-btn btn-style-one"><span>View Cart</span></a></div>
+            @if (access.HttpContext.Session.GetString("name") == null)
+            {
+                <div class="right"><a href="/account/login" class="theme-btn btn-style-two"><span>Checkout</span></a></div>
+
+            }else{
+                <div class="right"><a href="/shop/checkout" class="theme-btn btn-style-two"><span>Checkout</span></a></div>
+            }
+            
+        </div>
+    </div>
+</div>
+
+
+
+

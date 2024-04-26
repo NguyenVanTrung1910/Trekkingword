@@ -1,0 +1,475 @@
+﻿@inject Microsoft.AspNetCore.Http.IHttpContextAccessor access
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Treker</title>
+    <!-- Stylesheets -->
+    <link href="/css/bootstrap.css" rel="stylesheet">
+    <link href="/css/style.css" rel="stylesheet">
+    <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon">
+    <!-- Responsive -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <link href="/css/responsive.css" rel="stylesheet">
+    <!--[if lt IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script><![endif]-->
+
+</head>
+
+<body>
+    <div class="page-wrapper">
+
+        <!-- Preloader -->
+        <div class="preloader"></div>
+        <div class="search-backdrop"></div>
+        <!-- Main Header-->
+        <header class="main-header header-style-two">
+            <!-- Header Upper -->
+            <div class="header-upper">
+                <div class="auto-container">
+                    <!-- Main Box -->
+                    <div class="main-box clearfix">
+                        <!--Logo-->
+                        <div class="logo-box">
+                            <div class="logo"><a href="/home/index" title="Treker"><img src="/images/logo.svg" alt="" title="Treker"></a></div>
+                        </div>
+
+                        <div class="nav-box clearfix">
+                            <!--Nav Outer-->
+                            <div class="nav-outer clearfix">
+                                <nav class="main-menu">
+                                    <ul class="navigation clearfix">
+                                        <li class="dropdown">
+                                            <a href="/home/index">Home</a>
+                                        </li>
+                                        <li class="@ViewBag.About dropdown">
+                                            <a href="/about/index">About Us</a>
+                                            <ul>
+                                                <li><a href="/about/Team">Our Team</a></li>
+                                                <li><a href="/about/faq">FAQs</a></li>
+                                                <li><a href="/about/gallery">Gallery</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class=" @ViewBag.Shop dropdown">
+                                            <a href="/shop/index">Shop</a>
+                                            <ul>
+                                                <li><a href="/shop/index">Our Shop</a></li>
+                                                <li><a href="/shop/wishlist">My Wishlist</a></li>
+                                                <li><a href="/shop/shopCart">Shopping Cart</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="@ViewBag.Destinations"><a href="/destination/index">Destinations</a></li>
+                                        <li class="@ViewBag.Trekking"><a href="/trekking/index">Trekking</a></li>
+                                        <li class="@ViewBag.Page dropdown">
+                                            <a href="/page/TermPage">Pages</a>
+                                            <ul>
+                                                <li><a href="/page/activity">Activities</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="@ViewBag.New ">
+                                            <a href="/new/index">News</a>
+                                        </li>
+                                        <li class="@ViewBag.Contact"><a href="/contact/index">Contact</a></li>
+                                    </ul>
+                                </nav>
+                                <!-- Main Menu End-->
+                            </div>
+                            <!--Nav Outer End-->
+
+                            <div class="links-box clearfix">
+                                <div class="link search-btn search-toggle" ><span class="icon far fa-search"></span></div>
+                                <div class="link fav-btn"><a href="/shop/WishList"><span class="icon far fa-heart"></span><span class="count">@access.HttpContext.Session.GetInt32("quantityWish")</span></a></div>
+                                <div class="link cart-btn"><a href="#" class="clearfix"><div class="cart-info"><span class="icon far fa-shopping-cart"></span>@access.HttpContext.Session.GetInt32("quantityCart") Items</div></a></div>
+                            </div>
+                            <!-- Hidden Nav Toggler -->
+                            <div class="nav-toggler">
+                                <button class="hidden-bar-opener"><span class="icon"><img src="/images/icons/menu-icon.svg" alt=""></span></button>
+                            </div>
+
+                        </div>
+
+                        <!-- End Header Upper -->
+                        <div class="search-box">
+                            <div class="outer-container">
+                                <div class="inner-box">
+                                    <div class="form-box">
+                                        <div class="s-close-btn"><span class="icon far fa-times"></span></div>
+                                        <span class="s-icon fa fa-search"></span>
+                                        <form method="post" action="index.html">
+                                            <div class="form-group">
+                                                <input type="search" name="search" value="" placeholder="Search Here" required="">
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!--End Main Header -->
+        <!--Search Backdrop-->
+        <div class="search-backdrop"></div>
+
+
+        <!--Menu Backdrop-->
+        <div class="menu-backdrop"></div>
+
+        <!-- Hidden Navigation Bar -->
+        <section class="hidden-bar">
+            <!-- Hidden Bar Wrapper -->
+            <div class="hidden-bar-wrapper">
+                <div class="hidden-bar-closer"><span class="icon"><svg class="icon-close" role="presentation" viewBox="0 0 16 14"><path d="M15 0L1 14m14 0L1 0" stroke="currentColor" fill="none" fill-rule="evenodd"></path></svg></span></div>
+                <div class="nav-logo-box">
+                    <div class="logo"><a href="index.html" title="Treker"><img src="/images/logo.svg" alt="" title="Treker"></a></div>
+                </div>
+                <!-- .Side-menu -->
+                <div class="side-menu">
+                    <ul class="navigation clearfix">
+                        <li class="dropdown">
+                            <a href="/home/index">Home</a>
+                        </li>
+                        <li class="@ViewBag.About dropdown">
+                            <a href="/about/index">About Us</a>
+                            <ul>
+                                <li><a href="/about/Team">Our Team</a></li>
+                                <li><a href="/about/faq">FAQs</a></li>
+                                <li><a href="/about/gallery">Gallery</a></li>
+                            </ul>
+                        </li>
+                        <li class=" @ViewBag.Shop dropdown">
+                            <a href="/shop/index">Shop</a>
+                            <ul>
+                                <li><a href="/shop/index">Our Shop</a></li>
+                                <li><a href="/shop/wishlist">My Wishlist</a></li>
+                                <li><a href="/shop/shopCart">Shopping Cart</a></li>
+                            </ul>
+                        </li>
+                        <li class="@ViewBag.Destinations"><a href="/destination/index">Destinations</a></li>
+                        <li class="@ViewBag.Trekking"><a href="/trekking/index">Trekking</a></li>
+                        <li class="@ViewBag.Page dropdown">
+                            <a href="/page/TermPage">Pages</a>
+                            <ul>
+                                <li><a href="/page/activity">Activities</a></li>
+                            </ul>
+                        </li>
+                        <li class="@ViewBag.New ">
+                            <a href="/new/index">News</a>
+                        </li>
+                        <li class="@ViewBag.Contact"><a href="/contact/index">Contact</a></li>
+                    </ul>
+                </div><!-- /.Side-menu -->
+
+                <div class="links-box clearfix">
+                    <div class="clearfix">
+                        <div class="link"><a href="/account/login" class="theme-btn btn-style-one"><span>Login<i class="icon far fa-angle-right"></i></span></a></div>
+                        <div class="link"><a href="/account/signup" class="theme-btn btn-style-two"><span>Sign Up<i class="icon far fa-angle-right"></i></span></a></div>
+                    </div>
+                </div>
+
+            </div><!-- / Hidden Bar Wrapper -->
+        </section>
+        <!-- / Hidden Bar -->
+
+        <div class="cart-backdrop"></div>
+        <!--Cart Sidebar-->
+        <div class="cart-sidebar">
+            <div class="cart-side-inner">
+                <div class="cart-side-header">
+                    <div class="closer-btn"><span>Close</span></div>
+                    <h5>Shopping Cart</h5>
+                </div>
+                <div class="prod-box">
+                    @await Component.InvokeAsync("ListCart")
+                </div>
+            </div>
+            <div class="lower-content">
+                <div class="count clearfix">
+                    <span class="ttl">Subtotal</span>
+                    <span class="dtl">$225.00</span>
+                </div>
+                <div class="links clearfix">
+                    <div class="left"><a href="#" class="theme-btn btn-style-one"><span>View Cart</span></a></div>
+                    <div class="right"><a href="#" class="theme-btn btn-style-two"><span>Checkout</span></a></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Banner Section -->
+        <section class="inner-banner">
+            <div class="image-layer" style="background-image: url(/images/background/banner-image-1.jpg);"></div>
+            <div class="auto-container">
+                <div class="content-box">
+                    <h2>@ViewBag.Index</h2>
+                    <div class="bread-crumb">
+                        <ul class="clearfix">
+                            <li><span class="icon-home fa fa-home"></span><a href="/home/index">Home</a></li>
+                            <li class="current">@ViewBag.Index</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        @RenderBody()
+        <!--Main Footer-->
+        <footer class="footer-two">
+            <div class="bg-layer" style="background-image: url(/images/background/footer-bg.png);"></div>
+            <div class="upper-section">
+                <div class="auto-container">
+
+                    <div class="row clearfix">
+
+                        <div class="footer-column col-xl-4 col-lg-12 col-md-12 col-sm-12">
+                            <!--Logo-->
+                            <div class="footer-logo">
+                                <div class="logo"><a href="/home/index" title="Treker"><img src="/images/logo.svg" alt="" title="Treker"></a></div>
+                            </div>
+                            <div class="footer-text">Treker was founded in 1991 by a group of safety-focused professionals who created The Wingman Standard for rigorously vetting air charter operators.</div>
+                            <div class="social-links">
+                                <ul class="clearfix">
+                                    <li><a href="https://www.facebook.com"><i class="fab fa-facebook-f"></i></a></li>
+                                    <li><a href="https://www.twitter.com"><i class="fab fa-twitter"></i></a></li>
+                                    <li><a href="https://www.youtube.com"><i class="fab fa-youtube"></i></a></li>
+                                    <li> <a href="https://www.instagram.com"><i class="fab fa-instagram"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="big-column col-xl-8 col-lg-12 col-md-12 col-sm-12">
+                            <div class="row clearfix">
+
+                                <div class="footer-column col-lg-3 col-md-4 col-sm-12">
+                                    <h6>Exlopre Treker</h6>
+                                    <div class="links">
+                                        <ul>
+                                            <li><a href="/account/login">Account</a></li>
+                                            <li><a href="#">Privacy Policy</a></li>
+                                            <li><a href="#">Affilitate</a></li>
+                                            <li><a href="#">Program</a></li>
+                                            <li><a href="#">Our Partner</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <div class="footer-column col-lg-3 col-md-4 col-sm-12">
+                                    <h6>Quick lInks</h6>
+                                    <div class="links">
+                                        <ul>
+                                            <li><a href="/about/index">About us</a></li>
+                                            <li><a href="/new/index">News & press</a></li>
+                                            <li><a href="/blog/detail">Blog</a></li>
+                                            <li><a href="/about/faq">FAQs</a></li>
+                                            <li><a href="#">Careers</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <div class="info-block col-lg-6 col-md-4 col-sm-12">
+                                    <h6>Address</h6>
+                                    <div class="info">
+                                        <ul>
+                                            <li>Europe 45 Gloucester Road London DT1M 3BF <a href="tel:+44(0)2036715709">+44 (0)20 3671 5709</a></li>
+                                            <li>Europe 45 Gloucester Road London DT1M 3BF <a href="tel:+44(0)2036715709">+44 (0)20 3671 5709</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="f-bottom">
+                <div class="auto-container">
+                    <div class="inner clearfix">
+                        <div class="copyright">Copyright &copy; 2022 Treker. All Rights Reserved. Designed by ThemeIM</div>
+                    </div>
+                </div>
+            </div>
+
+        </footer>
+
+    </div>
+    <!--End pagewrapper-->
+    <!--Scroll to top-->
+    <div class="scroll-to-top scroll-to-target" data-target="html"><span class="icon"><img src="/images/icons/arrow-up.svg" alt="" title="Go To Top"></span></div>
+    <script src="/js/jquery.js"></script>
+    <script src="/js/popper.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/jquery-ui.js"></script>
+    <script src="/js/jquery.fancybox.js"></script>
+    <script src="/js/mixitup.js"></script>
+    <script src="/js/touchspin.js"></script>
+    <script src="/js/appear.js"></script>
+    <script src="/js/odometer.js"></script>
+    <script src="/js/bxslider.js"></script>
+    <script src="/js/owl.js"></script>
+    <script src="/js/wow.js"></script>
+    <script src="/js/custom-script.js"></script>
+    <!--Tinh Tong Gia tri cua Cart-->
+    <script>
+        var t = 0;
+        function calculateTotal() {
+            var total = 0;
+            var quantities = $(".quantity");
+            var prices = $(".n-price");
+            var subtotals = $(".colSub");
+
+            for (var i = 0; i < quantities.length; i++) {
+                var price = parseFloat(prices.eq(i).text().replace('$', ''));
+                var quantity = parseInt(quantities.eq(i).val());
+                var subtotal = quantity * price;
+                total += subtotal;
+                subtotals.eq(i).text("$" + subtotal.toFixed(2));
+            }
+            t = total.toFixed(2);
+            $("#total").text("$" + total.toFixed(2));
+            $("#sub").text("$" + total.toFixed(2));
+        }
+        function calculateTotal1() {
+            var total = 0;
+            var quantities = $(".quantity1");
+            var prices = $(".n-price1");
+
+            for (var i = 0; i < quantities.length; i++) {
+                var price = parseFloat(prices.eq(i).text().replace('$', ''));
+                var quantity = parseInt(quantities.eq(i).val());
+                var subtotal = quantity * price;
+                total += subtotal;
+            }
+            t = total.toFixed(2);
+            $("#total1").text("$" + total.toFixed(2));
+        }
+        $(document).ready(function () {
+            calculateTotal();
+            calculateTotal1();
+            // Gọi hàm calculateTotal sau mỗi 5 giây
+            setInterval(function () {
+                calculateTotal();
+                calculateTotal1();
+            }, 5000); // 5000 milliseconds = 5 seconds
+            $("#checkout").click(function () {
+                const newRequest = new Request("/shop/checkoutTotal", {
+                    method: "Post",
+                    body: JSON.stringify({ total:  t}),
+                    headers: {
+                        "Content-Type": "application/json"
+                    }
+                });
+
+                // Thực hiện fetch
+                fetch(newRequest).then(response => response.json())
+                    .then(data => {
+                        // Xử lý dữ liệu nhận được nếu cần
+                        console.log(data);
+                        // Redirect hoặc hiển thị view mới nếu cần
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                    });
+            });
+            // Gọi hàm click để phân loại các sản phẩm
+            $(".type li a").click(function () {
+                $(".type li a.active").removeClass("active"); // Xóa lớp 'active' từ tất cả các liên kết
+                $(this).addClass("active"); // Thêm lớp 'active' cho liên kết được nhấp vào
+                var type = $(this).text();
+                fetch("/shop/FilterProduct?type=" + type, {
+                    method: "Get",
+                    headers: {
+                        "Content-Type": "text/plain"
+                    }
+                }).then(response => response.json())
+                .then(data => {
+                    var text = "";
+                    if (data.length === 0) {
+                        $(".allproduct").html("<h3 style='margin-left:45%'>No Product</h3>");
+                    } else {
+                        data.forEach(function (item) {
+                            text += "<div class='prod-block col-xl-3 col-lg-4 col-md-6 col-sm-12'> <div class='inner-box'> <div class='why-block'> <div class='image-box'> <div class='image'><a href='#'><img src='/images/" + item.imagesSpecial + "' style='height: 248px; width: 270px'></a></div> <div class='hvr-box'> <div class='hvr-inner'> <div class='hvr-content'> <div class='link'><a href='/shop/addCart/" + item.id + "' class='theme-btn'><i class='far fa-shopping-cart'></i> Add To Cart</a></div> <div class='link'><a href='/shop/ProductDetail/" + item.id + "' class='theme-btn'><i class='far fa-bars'></i> Details</a></div> </div> </div> </div> <div class='add-fav'><a href='/shop/AddWish/" + item.id + "' class='theme-btn'><i class='far fa-heart'></i></a></div> </div> <div class='lower-box'> <h5><a href='#'>" + item.name + "</a></h5> <div class='price'><span>$" + item.price + "</span></div> </div> </div> </div> </div>";
+                        });
+                        $(".allproduct").html(text);
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+            });
+
+
+            // Sắp xếp giam dan mảng sản phẩm theo giá
+            function sortByPrice(products) {
+                products.sort(function (a, b) {
+                    return b.price - a.price; // Sắp xếp theo giá giam dần
+                    // return b.price - a.price; // Sắp xếp theo giá giảm dần
+                });
+            }
+            // Sắp xếp tang dan mảng sản phẩm theo giá
+            function sortByPrice1(products) {
+                products.sort(function (a, b) {
+                    return a.price - b.price; // Sắp xếp theo giá tang dần
+                    // return b.price - a.price; // Sắp xếp theo giá tang dần
+                });
+            }
+
+            // Cập nhật giao diện người dùng với danh sách sản phẩm đã sắp xếp
+            function updateUI(products) {
+                var text = "";
+                products.forEach(function (item) {
+                    text += "<div class='prod-block col-xl-3 col-lg-4 col-md-6 col-sm-12'> <div class='inner-box'> <div class='why-block'> <div class='image-box'> <div class='image'><a href='#'><img src='" + item.imagesSpecial + "' style='height: 248px; width: 270px'></a></div> <div class='hvr-box'> <div class='hvr-inner'> <div class='hvr-content'> <div class='link'><a href='/shop/addCart/" + item.id + "' class='theme-btn'><i class='far fa-shopping-cart'></i> Add To Cart</a></div> <div class='link'><a href='/shop/ProductDetail/" + item.id + "' class='theme-btn'><i class='far fa-bars'></i> Details</a></div> </div> </div> </div> <div class='add-fav'><a href='/shop/AddWish/" + item.id + "' class='theme-btn'><i class='far fa-heart'></i></a></div> </div> <div class='lower-box'> <h5 class ='nameproduct'><a href='#'>" + item.name + "</a></h5> <div class='price'><span>$" + item.price + "</span></div> </div> </div> </div> </div>";
+                });
+                $(".allproduct").html(text);
+            }
+
+            // Xử lý sự kiện khi người dùng chọn sắp xếp theo giá
+            $(".highToLow").click(function () {
+                // Lấy mảng sản phẩm từ giao diện người dùng, ví dụ: từ một danh sách ul/li
+                var products = $(".prod-block").toArray().map(function (li) {
+                    return {
+                        id: $(li).find(".id").text(),
+                        name: $(li).find(".nameproduct a").text(),
+                        price: parseFloat($(li).find(".price").text().replace("$", "")),
+                        imagesSpecial: $(li).find("img").attr("src")
+                    };
+                });
+
+            // Sắp xếp mảng sản phẩm theo giá
+            sortByPrice(products);
+
+            // Cập nhật giao diện người dùng với danh sách sản phẩm đã sắp xếp
+            updateUI(products);
+            });
+            // Xử lý sự kiện khi người dùng chọn sắp xếp theo giá
+            $(".lowToHigh").click(function () {
+                // Lấy mảng sản phẩm từ giao diện người dùng, ví dụ: từ một danh sách ul/li
+                var products = $(".prod-block").toArray().map(function (li) {
+                    return {
+                        id: $(li).find(".id").text(),
+                        name: $(li).find(".nameproduct").text(),
+                        price: parseFloat($(li).find(".price").text().replace("$", "")),
+                        imagesSpecial: $(li).find("img").attr("src")
+                    };
+                });
+
+                // Sắp xếp mảng sản phẩm theo giá
+                sortByPrice1(products);
+
+                // Cập nhật giao diện người dùng với danh sách sản phẩm đã sắp xếp
+                updateUI(products);
+            });
+
+
+
+
+
+
+        });
+        
+
+    </script>
+    
+</body>
+</html>

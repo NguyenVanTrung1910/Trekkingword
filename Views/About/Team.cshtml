@@ -1,0 +1,196 @@
+﻿@model IEnumerable<TourWeb.Models.Account>
+        <!--Team Section-->
+        <section class="team-section team-page">
+
+            <div class="floated-icon left"><img src="/images/resource/stones-left.svg" alt="" title=""></div>
+            <div class="floated-icon right"><img src="/images/resource/stones-right-2.svg" alt="" title=""></div>
+            <div class="auto-container">
+                <div class="content-box">
+                    <div class="row clearfix">
+                        <!--Block-->
+                        @foreach(var member in Model)
+                        {
+                            <div class="team-block-one col-lg-4 col-md-6 col-sm-12">
+                                <div class="inner-box">
+                                    <div class="image-box">
+                                        <div class="image"><a href="/about/teammember/@member.Id"><img src="/images/@member.ImagePath" alt="" title=""></a></div>
+                                    </div>
+                                    <div class="lower-box">
+                                        <h4><a href="#">@member.Name</a></h4>
+                                        <div class="designation">Tour Guider</div>
+                                        <div class="phone">
+                                            <a href="#" class="theme-btn call-btn"><i class="icon"><img src="/images/icons/phone-call.svg" alt="" title=""></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+
+                    <div class="load-more"><a href="#" class="theme-btn btn-style-one"><span>Load More......</span></a></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section class="features-section">
+            <div class="image-layer" style="background-image: url(/images/background/image-7.jpg);"></div>
+            <div class="auto-container">
+                <div class="upper-box">
+                    <div class="row clearfix">
+                        <!--Block-->
+                        <div class="feature-block col-lg-3 col-md-6 col-sm-12">
+                            <div class="inner-box">
+                                <div class="icon-box"><img src="/images/resource/f-icon-1.svg" alt=""></div>
+                                <h5>Private Transport</h5>
+                                <div class="text">Richly varied landscapes, luxury accommodation travel Fully.</div>
+                            </div>
+                        </div>
+                        <!--Block-->
+                        <div class="feature-block col-lg-3 col-md-6 col-sm-12">
+                            <div class="inner-box">
+                                <div class="icon-box"><img src="/images/resource/f-icon-2.svg" alt=""></div>
+                                <h5>Diverse Destination</h5>
+                                <div class="text">Richly varied landscapes, luxury accommodation travel Fully.</div>
+                            </div>
+                        </div>
+                        <!--Block-->
+                        <div class="feature-block col-lg-3 col-md-6 col-sm-12">
+                            <div class="inner-box">
+                                <div class="icon-box"><img src="/images/resource/f-icon-3.svg" alt=""></div>
+                                <h5>Great Hotel</h5>
+                                <div class="text">Richly varied landscapes, luxury accommodation travel Fully.</div>
+                            </div>
+                        </div>
+                        <!--Block-->
+                        <div class="feature-block col-lg-3 col-md-6 col-sm-12">
+                            <div class="inner-box">
+                                <div class="icon-box"><img src="/images/resource/f-icon-4.svg" alt=""></div>
+                                <h5>Fast Booking</h5>
+                                <div class="text">Richly varied landscapes, luxury accommodation travel Fully.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-box">
+                <div class="auto-container">
+                    <div class="inner-box">
+                        <div class="reviews-carousel owl-theme owl-carousel">
+                            <!--Block-->
+                            <div class="slide-item">
+                                <div class="inner">
+                                    <div class="left-image">
+                                        <div class="icon"><img src="/images/icons/quotes-3.svg" alt=""></div>
+                                        <div class="image"><img src="/images/resource/rev-thumb-4.png" alt=""></div>
+                                    </div>
+                                    <div class="rating"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></div>
+                                    <div class="text">" Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum Occaecat cupidatat non proident,sunt.</div>
+                                    <div class="info">
+                                        <span class="name">William Smith</span>
+                                        <span class="designation">CEO of tourbuzz</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--Block-->
+                            <div class="slide-item">
+                                <div class="inner">
+                                    <div class="left-image">
+                                        <div class="icon"><img src="/images/icons/quotes-3.svg" alt=""></div>
+                                        <div class="image"><img src="/images/resource/rev-thumb-4.png" alt=""></div>
+                                    </div>
+                                    <div class="rating"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></div>
+                                    <div class="text">" Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum Occaecat cupidatat non proident,sunt.</div>
+                                    <div class="info">
+                                        <span class="name">William Smith</span>
+                                        <span class="designation">CEO of tourbuzz</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--Block-->
+                            <div class="slide-item">
+                                <div class="inner">
+                                    <div class="left-image">
+                                        <div class="icon"><img src="/images/icons/quotes-3.svg" alt=""></div>
+                                        <div class="image"><img src="/images/resource/rev-thumb-4.png" alt=""></div>
+                                    </div>
+                                    <div class="rating"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></div>
+                                    <div class="text">" Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum Occaecat cupidatat non proident,sunt.</div>
+                                    <div class="info">
+                                        <span class="name">William Smith</span>
+                                        <span class="designation">CEO of tourbuzz</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!--Sponsors Section-->
+        <section class="sponsors-one">
+            <div class="auto-container">
+                <div class="carousel-box">
+                    <div class="sponsors-carousel owl-theme owl-carousel">
+                        <!--Block-->
+                        <div class="sponsor-block">
+                            <div class="inner-box">
+                                <div class="image"><a href="#"><img src="/images/resource/sponsor-1.png" alt=""></a></div>
+                            </div>
+                        </div>
+
+                        <!--Block-->
+                        <div class="sponsor-block">
+                            <div class="inner-box">
+                                <div class="image"><a href="#"><img src="/images/resource/sponsor-2.png" alt=""></a></div>
+                            </div>
+                        </div>
+
+                        <!--Block-->
+                        <div class="sponsor-block">
+                            <div class="inner-box">
+                                <div class="image"><a href="#"><img src="/images/resource/sponsor-3.png" alt=""></a></div>
+                            </div>
+                        </div>
+
+                        <!--Block-->
+                        <div class="sponsor-block">
+                            <div class="inner-box">
+                                <div class="image"><a href="#"><img src="/images/resource/sponsor-4.png" alt=""></a></div>
+                            </div>
+                        </div>
+
+                        <!--Block-->
+                        <div class="sponsor-block">
+                            <div class="inner-box">
+                                <div class="image"><a href="#"><img src="/images/resource/sponsor-1.png" alt=""></a></div>
+                            </div>
+                        </div>
+
+                        <!--Block-->
+                        <div class="sponsor-block">
+                            <div class="inner-box">
+                                <div class="image"><a href="#"><img src="/images/resource/sponsor-2.png" alt=""></a></div>
+                            </div>
+                        </div>
+
+                        <!--Block-->
+                        <div class="sponsor-block">
+                            <div class="inner-box">
+                                <div class="image"><a href="#"><img src="/images/resource/sponsor-3.png" alt=""></a></div>
+                            </div>
+                        </div>
+
+                        <!--Block-->
+                        <div class="sponsor-block">
+                            <div class="inner-box">
+                                <div class="image"><a href="#"><img src="/images/resource/sponsor-4.png" alt=""></a></div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+

@@ -1,0 +1,732 @@
+﻿@inject Microsoft.AspNetCore.Http.IHttpContextAccessor access
+@{
+    Layout = "";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Treker - Home 01</title>
+    <!-- Stylesheets -->
+    <link href="/css/bootstrap.css" rel="stylesheet">
+    <link href="/css/style.css" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="css/font-awesome.css">
+    <link rel="stylesheet" href="css/simple-line-icons.css"> -->
+    <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon">
+    <link rel="icon" href="/images/favicon.png" type="image/x-icon">
+    <!-- Responsive -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <link href="/css/responsive.css" rel="stylesheet">
+    <!--[if lt IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script><![endif]-->
+
+</head>
+
+<body>
+    <div class="page-wrapper">
+
+        <!-- Preloader -->
+        <div class="preloader"></div>
+
+        <div class="search-backdrop"></div>
+
+        <!-- Main Header-->
+        <header class="main-header ">
+            <div class="header-top">
+                <div class="auto-container">
+                    <div class="inner clearfix">
+                        <div class="top-left clearfix">
+                            <ul class="info clearfix">
+                                <li><i class="icon fa fa-envelope"></i> <a href="/cdn-cgi/l/email-protection#51181f171e110503141a14037f121e1c"><span class="__cf_email__" data-cfemail="2960676f66697d7b6c626c7b076a6664">[email&#160;protected]</span></a></li>
+                                <li><i class="icon fa fa-phone-circle"></i> <a href="tel:+11256326501">+11 256 3265 01</a></li>
+                            </ul>
+                        </div>
+                        <div class="top-right clearfix">
+                            <div class="lang-box">
+                                <div class="lang-btn clearfix"><span class="img far fa-globe-americas"></span><span class="txt">Eng</span><span class="icon far fa-angle-down"></span></div>
+                                <ul class="lang-list">
+                                    <li><a href="#">Tur</a></li>
+                                    <li><a href="#">Esp</a></li>
+                                    <li><a href="#">Rus</a></li>
+                                </ul>
+                            </div>
+                            @if (access.HttpContext.Session.GetString("name") != null)
+                            {
+                                <div class="login"><i class="icon fa fa-user"></i> <a href="/account/Logout">LOG OUT</a></div>
+                            }else{
+                                <div class="login"><i class="icon fa fa-user"></i> <a href="/account/login">LOG IN</a></div>
+                            }
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <!-- Header Upper -->
+        <div class="header-upper">
+            <div class="auto-container">
+                <!-- Main Box -->
+                <div class="main-box clearfix">
+                    <!--Logo-->
+                    <div class="logo-box">
+                        <div class="logo"><a href="/home/index" title="Treker"><img src="/images/logo.svg" alt="" title="Treker"></a></div>
+                    </div>
+                    <div class="nav-box clearfix">
+                        <!--Nav Outer-->
+                        <div class="nav-outer clearfix">
+                            <nav class="main-menu">
+                                <ul class="navigation clearfix">
+                                    <li class="current dropdown">
+                                        <a href="/home/index">Home</a>
+                                    </li>
+                                    <li class=" dropdown">
+                                        <a href="/about/index">About Us</a>
+                                        <ul>
+                                            <li><a href="/about/Team">Our Team</a></li>
+                                            <li><a href="/about/teamMember">Team Member</a></li>
+                                            <li><a href="/about/faq">FAQs</a></li>
+                                            <li><a href="/about/gallery">Gallery</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="dropdown">
+                                        <a href="/shop/index">Shop</a>
+                                        <ul>
+                                            <li><a href="/shop/index">Our Shop</a></li>
+                                            <li><a href="/shop/wishlist">My Wishlist</a></li>
+                                            <li><a href="/shop/shopCart">Shopping Cart</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="/destination/index">Destinations</a></li>
+                                    <li><a href="/trekking/index">Trekking</a></li>
+                                    <li class="dropdown">
+                                        <a href="/page/TermPage">Pages</a>
+                                        <ul>
+                                            <li><a href="/page/activity">Activities</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="/new/index">News</a>
+                                    </li>
+                                    <li><a href="/contact/index">Contact</a></li>
+                                </ul>
+                            </nav>
+                            <!-- Main Menu End-->
+                        </div>
+                        <!--Nav Outer End-->
+
+                        <div class="links-box clearfix">
+                            <div class="link search-btn search-toggle"><span class="icon far fa-search"></span></div>
+                            <div class="link fav-btn"><a href="/shop/WishList"><span class="icon far fa-heart"></span><span class="count">@access.HttpContext.Session.GetInt32("quantityWish")</span></a></div>
+                            <div class="link cart-btn"><a href="#" class="clearfix"><div class="cart-info"><span class="icon far fa-shopping-cart"></span>@access.HttpContext.Session.GetInt32("quantityCart") Items</div></a></div>
+                        </div>
+
+                        <!-- Hidden Nav Toggler -->
+                        <div class="nav-toggler">
+                            <button class="hidden-bar-opener"><span class="icon"><img src="/images/icons/menu-icon.svg" alt=""></span></button>
+                        </div>
+
+                    </div>
+
+                    <!-- End Header Upper -->
+                    <div class="search-box">
+                        <div class="outer-container">
+                            <div class="inner-box">
+                                <div class="form-box">
+                                    <div class="s-close-btn"><span class="icon far fa-times"></span></div>
+                                    <span class="s-icon fa fa-search"></span>
+                                    <form method="post" action="index.html">
+                                        <div class="form-group">
+                                            <input type="search" name="search" value="" placeholder="Search Here" required="">
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        </header>
+        <!--End Main Header -->
+        <!--Search Backdrop-->
+        <div class="search-backdrop"></div>
+
+        <!-- Menu Backdrop -->
+        <div class="menu-backdrop"></div>
+
+        <!-- Hidden Navigation Bar -->
+        <section class="hidden-bar">
+            <!-- Hidden Bar Wrapper -->
+            <div class="hidden-bar-wrapper">
+                <div class="hidden-bar-closer"><span class="icon"><svg class="icon-close" role="presentation" viewBox="0 0 16 14"><path d="M15 0L1 14m14 0L1 0" stroke="currentColor" fill="none" fill-rule="evenodd"></path></svg></span></div>
+                <div class="nav-logo-box">
+                    <div class="logo"><a href="index.html" title="Treker"><img src="/images/logo.svg" alt="" title="Treker"></a></div>
+                </div>
+                <!-- .Side-menu -->
+                <div class="side-menu">
+                    <ul class="navigation clearfix">
+                        <li class="current dropdown">
+                            <a href="/home/index">Home</a>
+                        </li>
+                        <li class=" dropdown">
+                            <a href="/about/index">About Us</a>
+                            <ul>
+                                <li><a href="/about/Team">Our Team</a></li>
+                                <li><a href="/about/teamMember">Team Member</a></li>
+                                <li><a href="/about/faq">FAQs</a></li>
+                                <li><a href="/about/gallery">Gallery</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="/shop/index">Shop</a>
+                            <ul>
+                                <li><a href="/shop/index">Our Shop</a></li>
+                                <li><a href="/shop/wishlist">My Wishlist</a></li>
+                                <li><a href="/shop/shopCart">Shopping Cart</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="/destination/index">Destinations</a></li>
+                        <li><a href="/trekking/index">Trekking</a></li>
+                        <li class="dropdown">
+                            <a href="/page/TermPage">Pages</a>
+                            <ul>
+                                <li><a href="/page/activity">Activities</a></li>
+                            </ul>
+                        </li>
+                        <li >
+                            <a href="/new/index">News</a>
+                        </li>
+                        <li><a href="/contact/index">Contact</a></li>
+                    </ul>
+                </div><!-- /.Side-menu -->
+
+                <div class="links-box clearfix">
+                    <div class="clearfix">
+                        <div class="link"><a href="/account/login" class="theme-btn btn-style-one"><span>Login<i class="icon far fa-angle-right"></i></span></a></div>
+                        <div class="link"><a href="/account/signup" class="theme-btn btn-style-two"><span>Sign Up<i class="icon far fa-angle-right"></i></span></a></div>
+                    </div>
+                </div>
+
+            </div><!-- / Hidden Bar Wrapper -->
+        </section>
+        <!-- / Hidden Bar -->
+
+        <div class="cart-backdrop"></div>
+
+        <!--Cart Sidebar-->
+        @await Component.InvokeAsync("ListCart")
+        
+
+        <!-- Banner Section -->
+        <section class="banner-section">
+
+            <div class="banner-container">
+                <div class="banner-slider-box">
+                    <!--Slide Item-->
+                    <div class="slide-item">
+                        <div class="auto-container">
+                            <div class="content-box">
+                                <div class="content">
+                                    <div class="clearfix">
+                                        <div class="inner">
+                                            <div class="bg-image"><img src="/images/main-slider/banner-bg-text.svg" alt="" title=""></div>
+                                            <h2>Never Stop</h2>
+                                            <h1><span>Exploring</span></h1>
+                                            <div class="text">Their house is a museum where people come to see ‘em. They really are a scream the Addams Family. These days are all Happy and Free. These days are all share them with me oh baby.</div>
+                                            <div class="links-box clearfix">
+                                                <div class="link"><a href="/Destination/index" class="theme-btn btn-style-one"><span>View All Tours<i class="icon"><img src="/images/icons/logo-icon.svg" alt="" title=""></i></span></a></div>
+                                                <div class="link"><a href="https://www.youtube.com/watch?v=0xhr0j877bI" class="theme-btn lightbox-image"><i class="ripple"></i><span class="icon"><img src="/images/icons/video-icon-1.svg" alt="" title=""></span></a></div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="banner-image">
+                                    <div class="image"><img src="/images/main-slider/banner-image-1.svg" alt="" title=""></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+        <!--End Banner Section -->
+        <!--About Us Section-->
+        <section class="about-us">
+            <div class="floated-icon right"><img src="/images/resource/about-stone-right.svg" alt="" title=""></div>
+            <div class="auto-container">
+                <div class="row clearfix">
+                    <!--Text Col-->
+                    <div class="text-col col-lg-6 col-md-12 col-sm-12">
+                        <div class="inner wow fadeInRight" data-wow-duration="1500ms" data-wow-delay="0ms">
+                            <div class="title-box">
+                                <div class="subtitle">About Treker</div>
+                                <h2><i class="bg-vector"></i><span>World Best Travel Agency</span></h2>
+                                <div class="text">Since 2014, we’ve helped more than 500,000 people of all ages enjoy the best outdoor experience of their lives. Whether it’s for one day or a two-week vacation, close to home or a foreign land.</div>
+                            </div>
+                            <div class="lower-box">
+                                <div class="lower-inner clearfix">
+                                    <div class="text-content">
+                                        <ul>
+                                            <li>Ratione voluptatem.sequi nesciunt.</li>
+                                            <li>Ratione voluptatem.</li>
+                                            <li>Ratione voluptatem sequi.</li>
+                                        </ul>
+                                    </div>
+                                    <div class="image-box">
+                                        <img src="/images/resource/about-image-2.jpg" alt="" title="">
+                                        <a href="https://www.youtube.com/watch?v=0xhr0j877bI" class="theme-btn lightbox-image overlink"><span class="icon fa fa-play"></span></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--Image Col-->
+                    <div class="image-col col-lg-6 col-md-12 col-sm-12">
+                        <div class="inner wow fadeInLeft" data-wow-duration="1500ms" data-wow-delay="0ms">
+                            <div class="bg-image">
+                                <img src="/images/resource/about-vector-1.png" alt="" title="">
+                            </div>
+                            <div class="image-box">
+                                <img src="/images/resource/about-image-1.svg" alt="" title="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!--Popular Section-->
+        @await Component.InvokeAsync("PopularTrekking")
+        <!--Why Section-->
+        <section class="why-section">
+            <div class="floated-icon left"><img src="/images/resource/stones-left.svg" alt="" title=""></div>
+            <div class="floated-icon right"><img src="/images/resource/stones-right.svg" alt="" title=""></div>
+            <div class="auto-container">
+
+                <div class="title-box centered">
+                    <div class="subtitle">We Are Awesome</div>
+                    <h2><i class="bg-vector"></i><span>Why Choose Treker</span></h2>
+                </div>
+
+                <div class="row clearfix">
+                    <div class="left-col col-xl-3 col-lg-4 col-md-6 col-sm-12">
+                        <div class="inner">
+                            <div class="why-block">
+                                <div class="inner-box">
+                                    <div class="icon-box"><img src="/images/resource/icon-1.svg" alt=""></div>
+                                    <h4>Diverse Destinations</h4>
+                                    <div class="text">Richly varied landscapes, luxury accommodation Travel.</div>
+                                </div>
+                            </div>
+                            <div class="why-block">
+                                <div class="inner-box">
+                                    <div class="icon-box"><img src="/images/resource/icon-2.svg" alt=""></div>
+                                    <h4>Value for Money</h4>
+                                    <div class="text">Richly varied landscapes, luxury accommodation Travel.</div>
+                                </div>
+                            </div>
+                            <div class="why-block">
+                                <div class="inner-box">
+                                    <div class="icon-box"><img src="/images/resource/icon-3.svg" alt=""></div>
+                                    <h4>Beautiful Places</h4>
+                                    <div class="text">Richly varied landscapes, luxury accommodation Travel.</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="right-col col-xl-3 col-lg-4 col-md-6 col-sm-12">
+                        <div class="inner">
+                            <div class="why-block">
+                                <div class="inner-box">
+                                    <div class="icon-box"><img src="/images/resource/icon-4.svg" alt=""></div>
+                                    <h4>Fast Booking</h4>
+                                    <div class="text">Richly varied landscapes, luxury accommodation Travel.</div>
+                                </div>
+                            </div>
+                            <div class="why-block">
+                                <div class="inner-box">
+                                    <div class="icon-box"><img src="/images/resource/icon-5.svg" alt=""></div>
+                                    <h4>Support Team</h4>
+                                    <div class="text">Richly varied landscapes, luxury accommodation Travel.</div>
+                                </div>
+                            </div>
+                            <div class="why-block">
+                                <div class="inner-box">
+                                    <div class="icon-box"><img src="/images/resource/icon-6.svg" alt=""></div>
+                                    <h4>Passionate Travel</h4>
+                                    <div class="text">Richly varied landscapes, luxury accommodation Travel.</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="image-col col-xl-6 col-lg-4 col-md-12 col-sm-12">
+                        <div class="inner">
+                            <div class="image-box"><img src="/images/resource/why-image-1.svg" alt=""></div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!--Trending Destinations Section-->
+        @await Component.InvokeAsync("TourTredding")
+
+        <!--Products Section-->
+        <section class="products-section">
+            <div class="floated-icon left"><img src="/images/resource/stones-left.svg" alt="" title=""></div>
+            <div class="floated-icon right"><img src="/images/resource/stones-right.svg" alt="" title=""></div>
+            <div class="auto-container">
+                <div class="title-box centered">
+                    <div class="subtitle">Shop Now</div>
+                    <h2><i class="bg-vector"></i><span>Featured Trekking Products</span></h2>
+                </div>
+                <div class="row clearfix">
+                    <!--Block-->
+                    @await Component.InvokeAsync("ListProduct")
+                </div>
+                <div class="see-more-link"><a href="shop.html" class="theme-btn btn-style-one"><span>View All Products <i class="icon"><img src="/images/icons/logo-icon.svg" alt="" title=""></i></span></a></div>
+            </div>
+        </section>
+        
+
+        <!--Group Travel Section-->
+        <section class="group-travel">
+            <div class="bg-layer" style="background-image: url(/images/background/image-2.jpg);"></div>
+            <div class="auto-container">
+                <div class="content-box">
+                    <div class="row clearfix">
+                        <!--Block-->
+                        <div class="travel-block-one col-lg-6 col-md-12 col-sm-12">
+                            <div class="inner-box">
+                                <div class="title"><h4>Group Travel to Himalay</h4></div>
+                                <div class="content">
+                                    <div class="info">
+                                        <span class="i-block"><i class="icon far fa-clock"></i> 5 days</span> &ensp; | &ensp; <span class="i-block">259P, Himalaya Ag</span>
+                                    </div>
+                                    <div class="price"><span>$235.00</span></div>
+                                    <div class="text">Richly varied landscapes, luxurious accommodation and a wide range of wild experiences await you. </div>
+                                    <div class="link-box"><a href="#" class="theme-btn btn-style-one"><span>View Details <i class="icon"><img src="/images/icons/logo-icon.svg" alt="" title=""></i></span></a></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!--Block-->
+                        <div class="travel-block-one alternate col-lg-6 col-md-12 col-sm-12">
+                            <div class="inner-box">
+                                <div class="title"><h4>Group Travel to Himalay</h4></div>
+                                <div class="content">
+                                    <div class="info">
+                                        <span class="i-block"><i class="icon far fa-clock"></i> 5 days</span> &ensp; | &ensp; <span class="i-block">259P, Himalaya Ag</span>
+                                    </div>
+                                    <div class="price"><span>$235.00</span></div>
+                                    <div class="text">Richly varied landscapes, luxurious accommodation and a wide range of wild experiences await you. </div>
+                                    <div class="link-box"><a href="#" class="theme-btn btn-style-one"><span>View Details <i class="icon"><img src="/images/icons/logo-icon.svg" alt="" title=""></i></span></a></div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!--Testimonials Section-->
+        @await Component.InvokeAsync("ListContact")
+
+        <!--Sponsors Section-->
+        <section class="sponsors-one">
+            <div class="auto-container">
+                <div class="carousel-box">
+                    <div class="sponsors-carousel owl-theme owl-carousel">
+                        <!--Block-->
+                        <div class="sponsor-block">
+                            <div class="inner-box">
+                                <div class="image"><a href="#"><img src="/images/resource/sponsor-1.png" alt=""></a></div>
+                            </div>
+                        </div>
+
+                        <!--Block-->
+                        <div class="sponsor-block">
+                            <div class="inner-box">
+                                <div class="image"><a href="#"><img src="/images/resource/sponsor-2.png" alt=""></a></div>
+                            </div>
+                        </div>
+
+                        <!--Block-->
+                        <div class="sponsor-block">
+                            <div class="inner-box">
+                                <div class="image"><a href="#"><img src="/images/resource/sponsor-3.png" alt=""></a></div>
+                            </div>
+                        </div>
+
+                        <!--Block-->
+                        <div class="sponsor-block">
+                            <div class="inner-box">
+                                <div class="image"><a href="#"><img src="/images/resource/sponsor-4.png" alt=""></a></div>
+                            </div>
+                        </div>
+
+                        <!--Block-->
+                        <div class="sponsor-block">
+                            <div class="inner-box">
+                                <div class="image"><a href="#"><img src="/images/resource/sponsor-1.png" alt=""></a></div>
+                            </div>
+                        </div>
+
+                        <!--Block-->
+                        <div class="sponsor-block">
+                            <div class="inner-box">
+                                <div class="image"><a href="#"><img src="/images/resource/sponsor-2.png" alt=""></a></div>
+                            </div>
+                        </div>
+
+                        <!--Block-->
+                        <div class="sponsor-block">
+                            <div class="inner-box">
+                                <div class="image"><a href="#"><img src="/images/resource/sponsor-3.png" alt=""></a></div>
+                            </div>
+                        </div>
+
+                        <!--Block-->
+                        <div class="sponsor-block">
+                            <div class="inner-box">
+                                <div class="image"><a href="#"><img src="/images/resource/sponsor-4.png" alt=""></a></div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!--News Section-->
+        @await Component.InvokeAsync("LatestNew")
+
+        <!--Subscribe Section-->
+        <section class="subscribe-section">
+
+            <div class="auto-container">
+                <div class="content-box">
+                    <div class="bg-layer" style="background-image: url(/images/background/newsletter-bg.png);"></div>
+                    <div class="row clearfix">
+                        <div class="image-col col-xl-5 col-lg-6 col-md-12 col-sm-12">
+                            <div class="inner">
+                                <div class="image"><img src="/images/resource/newsletter-image.svg" alt=""></div>
+                            </div>
+                        </div>
+
+                        <div class="text-col col-xl-7 col-lg-6 col-md-12 col-sm-12">
+                            <div class="inner">
+                                <div class="title">
+                                    <div class="subtitle">Newsletter</div>
+                                    <h2>SUBSCRIBE NOW</h2>
+                                    <div class="text">Fight School has specialized in martial arts since 1986 and has one of the most innovative programs in the nation.</div>
+                                </div>
+                                <div class="form-box subscribe-form">
+                                    <form method="post" action="index.html">
+                                        <div class="form-group">
+                                            <div class="field-inner">
+                                                <span class="icon alt-icon far fa-envelope"></span>
+                                                <input type="email" name="email" value="" placeholder="Email Address">
+                                            </div>
+                                            <button type="submit" class="theme-btn btn-style-one"><span>SUBSCRIBE <i class="icon fa fa-paper-plane"></i></span></button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--Main Footer-->
+        <footer class="main-footer">
+            <div class="bg-layer" style="background-image: url(/images/background/f-bottom-bg.svg);"></div>
+            <div class="floated-icon"><img src="/images/resource/footer-stones.svg" alt="" title=""></div>
+            <div class="info-section">
+                <div class="auto-container">
+
+                    <div class="row clearfix">
+
+                        <div class="footer-column col-xl-4 col-lg-12 col-md-12 col-sm-12">
+                            <!--Logo-->
+                            <div class="footer-logo">
+                                <div class="logo"><a href="index.html" title="Treker"><img src="/images/logo.svg" alt="" title="Treker"></a></div>
+                            </div>
+                            <div class="footer-text">Treker was founded in 1991 by a group of safety-focused professionals who created The Wingman Standard for rigorously vetting air charter operators.</div>
+                        </div>
+
+                        <div class="col-xl-8 col-lg-12 col-md-12 col-sm-12">
+                            <div class="row clearfix">
+
+                                <div class="info-block col-lg-4 col-md-4 col-sm-12">
+                                    <h6>EUROPE</h6>
+                                    <div class="info">
+                                        <ul>
+                                            <li>Europe 45 Gloucester Road London DT1M 3BF</li>
+                                            <li><a href="tel:+44(0)2036715709">+44 (0)20 3671 5709</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <div class="info-block col-lg-4 col-md-4 col-sm-12">
+                                    <h6>ASIA & PACIFIC</h6>
+                                    <div class="info">
+                                        <ul>
+                                            <li>2473 Red Road Ste 98 Singapore SG</li>
+                                            <li><a href="tel:+16232116319">+ 1 623 211 6319</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <div class="info-block col-lg-4 col-md-4 col-sm-12">
+                                    <h6>NORTH AMERICA</h6>
+                                    <div class="info">
+                                        <ul>
+                                            <li>Europe 45 Gloucester Road London DT1M 3BF</li>
+                                            <li><a href="tel:+44(0)2036715709">+44 (0)20 3671 5709</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="lower-section">
+                <div class="auto-container">
+                    <div class="content-box">
+                        <div class="row clearfix">
+
+                            <div class="col-xl-8 col-lg-12 col-md-12 col-sm-12">
+                                <div class="row clearfix">
+
+                                    <div class="footer-column col-lg-4 col-md-4 col-sm-12">
+                                        <h6>About us</h6>
+                                        <div class="links">
+                                            <ul>
+                                                <li><a href="#">About Us</a></li>
+                                                <li><a href="#">Community Blog</a></li>
+                                                <li><a href="#">Rewards</a></li>
+                                                <li><a href="#">Work with Us</a></li>
+                                                <li><a href="#">Contact</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+
+                                    <div class="footer-column col-lg-4 col-md-4 col-sm-12">
+                                        <h6>Exlopre Treker</h6>
+                                        <div class="links">
+                                            <ul>
+                                                <li><a href="#">Account</a></li>
+                                                <li><a href="#">Privacy Policy</a></li>
+                                                <li><a href="#">Affilitate</a></li>
+                                                <li><a href="#">Program</a></li>
+                                                <li><a href="#">Our Partner</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+
+                                    <div class="footer-column col-lg-4 col-md-4 col-sm-12">
+                                        <h6>Quick lInks</h6>
+                                        <div class="links">
+                                            <ul>
+                                                <li><a href="#">About us</a></li>
+                                                <li><a href="#">News & press</a></li>
+                                                <li><a href="#">Blog</a></li>
+                                                <li><a href="#">FAQs</a></li>
+                                                <li><a href="#">Careers</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div class="footer-column col-xl-4 col-lg-6 col-md-8 col-sm-12">
+                                <h6>Gallery</h6>
+                                <!--Logo-->
+                                <div class="footer-gallery">
+                                    <div class="inner clearfix">
+                                        <div class="image-block"><div class="image"><a href="/images/resource/footer-thumb-1.jpg" class="lightbox-image"><img src="/images/resource/footer-thumb-1.jpg" alt=""></a></div></div>
+                                        <div class="image-block"><div class="image"><a href="/images/resource/footer-thumb-2.jpg" class="lightbox-image"><img src="/images/resource/footer-thumb-2.jpg" alt=""></a></div></div>
+                                        <div class="image-block"><div class="image"><a href="/images/resource/footer-thumb-3.jpg" class="lightbox-image"><img src="/images/resource/footer-thumb-3.jpg" alt=""></a></div></div>
+                                        <div class="image-block"><div class="image"><a href="/images/resource/footer-thumb-4.jpg" class="lightbox-image"><img src="/images/resource/footer-thumb-4.jpg" alt=""></a></div></div>
+                                        <div class="image-block"><div class="image"><a href="/images/resource/footer-thumb-5.jpg" class="lightbox-image"><img src="/images/resource/footer-thumb-5.jpg" alt=""></a></div></div>
+                                        <div class="image-block"><div class="image"><a href="/images/resource/footer-thumb-6.jpg" class="lightbox-image"><img src="/images/resource/footer-thumb-6.jpg" alt=""></a></div></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="f-bottom">
+                <div class="auto-container">
+                    <div class="inner clearfix">
+                        <div class="social-links">
+                            <ul class="clearfix">
+                                <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                                <li><a href="#"><i class="fab fa-youtube"></i></a></li>
+                                <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                            </ul>
+                        </div>
+                        <div class="copyright">Copyright &copy; 2022 Treker. All Rights Reserved. Designed by ThemeIM</div>
+                    </div>
+                </div>
+            </div>
+
+        </footer>
+
+    </div>
+    <!--End pagewrapper-->
+    <!--Scroll to top-->
+    <div class="scroll-to-top scroll-to-target" data-target="html"><span class="icon"><img src="/images/icons/arrow-up.svg" alt="" title="Go To Top"></span></div>
+
+    <script data-cfasync="false" src="/js/email-decode.min.js"></script>
+    <script src="/js/jquery.js"></script>
+    <script src="/js/popper.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/jquery-ui.js"></script>
+    <script src="/js/jquery.fancybox.js"></script>
+    <script src="/js/isotope.js"></script>
+    <script src="/js/touchspin.js"></script>
+    <script src="/js/owl.js"></script>
+    <script src="/js/wow.js"></script>
+    <script src="/js/custom-script.js"></script>
+    <script>
+        function calculateTotal() {
+            var total = 0;
+            var quantities = $(".quantity1");
+            var prices = $(".n-price1");
+
+            for (var i = 0; i < quantities.length; i++) {
+                var price = parseFloat(prices.eq(i).text().replace('$', ''));
+                var quantity = parseInt(quantities.eq(i).val());
+                var subtotal = quantity * price;
+                total += subtotal;
+            }
+            $("#total1").text("$" + total.toFixed(2));
+        }
+
+        $(document).ready(function () {
+            calculateTotal();
+
+            // Gọi hàm calculateTotal sau mỗi 5 giây
+            setInterval(function () {
+                calculateTotal();
+            }, 5000); // 5000 milliseconds = 5 seconds
+        });
+
+    </script>
+</body>
+</html>

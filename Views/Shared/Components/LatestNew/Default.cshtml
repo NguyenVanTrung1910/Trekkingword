@@ -1,0 +1,89 @@
+﻿@model List<TourWeb.Models.New>
+
+<section class="news-section">
+    <div class="floated-icon left"><img src="/images/resource/stones-left.svg" alt="" title=""></div>
+    <div class="floated-icon right"><img src="/images/resource/stones-right.svg" alt="" title=""></div>
+    <div class="bg-layer" style="background-image: url(/images/background/image-1.jpg);"></div>
+    <div class="auto-container">
+        <div class="title-box centered">
+            <div class="subtitle">Treker Top News</div>
+            <h2><i class="bg-vector"></i><span>Treker Latest News</span></h2>
+        </div>
+        <div class="content-box">
+            <div class="row clearfix">
+                <!--Block-->
+                <div class="news-block-one col-xl-4 col-lg-6 col-md-6 col-sm-12">
+                    <div class="inner-box wow fadeInLeft" data-wow-delay="0ms" data-wow-duration="1500ms">
+                        <div class="image-box">
+                            <div class="image"><a href="/New/BlogDetail/@Model[0].Id"><img src="/images/@Model[0].ImageSpecail" style="height:274px;width:370px" alt="" title=""></a></div>
+                            <div class="cat"><span>Trekking</span></div>
+                        </div>
+                        <div class="lower-content" style="height:274px;width:370px">
+                            <div class="info">
+                                <span class="i-block">By : @Model[0].Accounts.Name</span> &ensp; | &ensp; <span class="i-block">@Model[0].Date.Day/@Model[0].Date.Month/@Model[0].Date.Year</span>
+                            </div>
+                            <h4><a href="blog-single.html">@Model[0].Title</a></h4>
+                            @if (Model[0].Content.Length > 90)
+                            {
+                                <div class="text">@Model[0].Content.Substring(0, 90)...</div>
+                            }
+                            else
+                            {
+                                <div class="text">@Model[0].Content</div>
+                            }
+                        </div>
+                    </div>
+                </div>
+
+                <!--Block-->
+                <div class="news-block-one alternate col-xl-4 col-lg-6 col-md-6 col-sm-12">
+                    <div class="inner-box wow fadeInUp" data-wow-delay="0ms" data-wow-duration="1500ms">
+                        <div class="lower-content" style="height:274px;width:370px">
+                            <div class="info">
+                                <span class="i-block">By : @Model[1].Accounts.Name</span> &ensp; | &ensp; <span class="i-block">@Model[1].Date.Day/@Model[1].Date.Month/@Model[1].Date.Year</span>
+                            </div>
+                            <h4><a href="blog-single.html">@Model[1].Title</a></h4>
+                            @if (Model[1].Content.Length > 90)
+                            {
+                                <div class="text">@Model[1].Content.Substring(0, 90)...</div>
+                            }
+                            else
+                            {
+                                <div class="text">@Model[1].Content</div>
+                            }
+                        </div>
+                        <div class="image-box">
+                            <div class="image"><a href="/New/BlogDetail/@Model[1].Id"><img src="/images/@Model[1].ImageSpecail" style="height:274px;width:370px" alt="" title=""></a></div>
+                            <div class="cat"><span>Trekking</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!--Block-->
+                <div class="news-block-one col-xl-4 col-lg-6 col-md-6 col-sm-12">
+                    <div class="inner-box wow fadeInLeft" data-wow-delay="0ms" data-wow-duration="1500ms">
+                        <div class="image-box">
+                            <div class="image"><a href="/New/BlogDetail/@Model[2].Id"><img src="/images/@Model[2].ImageSpecail" style="height:274px;width:370px" alt="" title=""></a></div>
+                            <div class="cat"><span>Trekking</span></div>
+                        </div>
+                        <div class="lower-content" style="height:274px;width:370px">
+                            <div class="info">
+                                <span class="i-block">By : @Model[2].Accounts.Name</span> &ensp; | &ensp; <span class="i-block">@Model[2].Date.Day/@Model[2].Date.Month/@Model[2].Date.Year</span>
+                            </div>
+                            <h4><a href="blog-single.html">@Model[2].Title</a></h4>
+                            @if (Model[2].Content.Length > 90)
+                            {
+                                <div class="text">@Model[2].Content.Substring(0, 90)...</div>
+                            }
+                            else
+                            {
+                                <div class="text">@Model[0].Content</div>
+                            }
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>

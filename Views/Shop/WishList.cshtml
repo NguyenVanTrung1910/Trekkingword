@@ -1,0 +1,68 @@
+﻿@model List<TourWeb.Models.Product>
+        <!--Wishlist Section-->
+        <section class="wishlist-section">
+            <div class="auto-container">
+                <!--Cart Outer-->
+                <div class="wishlist-outer">
+                    <div class="table-outer">
+                        <div class="table-box">
+                            <table class="wishlist-table">
+                                <tbody>
+                                    @if(Model != null)
+                                    {
+                                         @foreach(var pro in Model)
+                                        {
+                                            <tr>
+                                                <td class="prod-column image-column">
+                                                    <div class="image-box">
+                                                        <figure class="prod-thumb"><a href="#"><img src="/images/@pro.ImagesSpecial" alt=""></a></figure>
+                                                    </div>
+                                                </td>
+                                                <td class="prod-column info-column">
+                                                    <div class="info-box">
+                                                        <h4 class="prod-title">@pro.Name</h4>
+                                                        <div class="price">Price : <span>$@pro.Price</span></div>
+                                                        <div class="date">April 02, 2024</div>
+                                                    </div>
+                                                </td>
+                                                <td class="avail">
+                                                    <div class="yes">In Stock</div>
+                                                    <div class="add-btn"><a href="/shop/addcart/@pro.Id" class="theme-btn add-cart-btn"><span><i class="far fa-shopping-cart"></i> Add To Cart</span></a></div>
+                                                </td>
+                                            </tr>
+                                        }
+                                    }else{
+                                        <h1>No Product</h1>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="wishlist-lower clearfix">
+                            <div class="left clearfix">
+                                <div class="link-title">Wishlist Link</div>
+                                <div class="link-form clearfix">
+                                    <div class="field">
+                                        <input type="text" name="coupon-code" value="" placeholder="https://themeforest.net/">
+                                    </div>
+                                    <div class="button">
+                                        <button type="button" class="theme-btn btn-style-two"><span>Copy Link</span></button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="share clearfix">
+                                <div class="share-title">share on : </div>
+                                <ul class="share-links clearfix">
+                                    <li><a href="#"><span class="fab fa-facebook-f"></span></a></li>
+                                    <li><a href="#"><span class="fab fa-twitter"></span></a></li>
+                                    <li><a href="#"><span class="fab fa-youtube"></span></a></li>
+                                    <li><a href="#"><span class="fab fa-instagram"></span></a></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- End Cart Section-->

@@ -1,0 +1,164 @@
+﻿@model List<TourWeb.Models.Tour>
+
+
+<!--Activity Section-->
+<section class="actvity-section">
+    <div class="auto-container">
+        <div class="title-box centered">
+            <h2><span>Our Treker Activities</span></h2>
+        </div>
+        <div class="content-box">
+            <div class="row clearfix">
+                <!--Block-->
+                @foreach(var tour in Model)
+                {
+                    <div class="activity-block-one col-xl-4 col-lg-6 col-md-6 col-sm-12">
+                        <div class="inner-box">
+                            <div class="image-box">
+                                <div class="image"><a href="/page/tourdetail/@tour.Id"><img src="/images/@tour.ImageSpecial" alt="" title="" style="height:290px;width:370px"></a></div>
+                                <div class="price"><span>$@Convert.ToInt32(@tour.Price)</span></div>
+                                <div class="info"><div><span class="icon"><img src="/images/icons/location-1.svg" alt="" title=""></span>@tour.Address</div></div>
+                            </div>
+                            <div class="lower-content">
+                                <h4><a href="/page/tourdetail/@tour.Id">@tour.Name </a></h4>
+                                <div class="ratings clearfix">
+                                    <div class="stars">
+                                        @for (var a = 1; a <= @tour.Review; a++)
+                                        {
+                                            <i class="fa fa-star"></i>
+                                        }
+                                        @for (var a = 1; a <= 5 - @tour.Review; a++)
+                                        {
+                                            <i class="fa fa-star empty"></i>
+                                        }
+                                    </div>
+                                    <div class="rev"><a href="#">@Convert.ToInt32(@tour.Review) Review</a></div>
+                                </div>
+                                <div class="text">@tour.Description.Substring(0,40)...</div>
+                                <div class="bottom-box clearfix">
+                                    <div class="more-link"><a href="/page/tourdetail/@tour.Id" class="theme-btn"><span>View Details <i class="icon"><img src="/images/icons/logo-icon.svg" alt=""></i></span></a></div>
+                                    <div class="fav-link"><a href="#" class="theme-btn"><i class="icon far fa-heart"></i></a></div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                }             
+            </div>
+            <div class="load-more"><a href="#" class="theme-btn btn-style-one"><span>Load More......</span></a></div>
+        </div>
+    </div>
+</section>
+
+<!-- Facts Section -->
+<section class="facts-section">
+    <div class="image-layer" style="background-image: url(images/background/image-6.jpg);"></div>
+    <div class="auto-container">
+        <div class="content-box">
+            <div class="video-btn"><a href="https://www.youtube.com/watch?v=0xhr0j877bI" class="theme-btn lightbox-image"><span class="icon"><img src="images/icons/video-icon-2.svg" alt="" title=""></span></a></div>
+            <div class="subtitle">Are you ready to travel?</div>
+            <h2>Treker is a World Leading Online Tour Booking Platform</h2>
+        </div>
+    </div>
+    <div class="facts-box">
+        <div class="auto-container">
+            <div class="inner-box">
+                <div class="row clearfix">
+                    <!--Block-->
+                    <div class="fact-block col-xl-3 col-lg-3 col-md-6 col-sm-12">
+                        <div class="inner">
+                            <div class="count"><span class="odometer" data-count="07"></span>+</div>
+                            <div class="fact-title"><span>Years Exp</span></div>
+                        </div>
+                    </div>
+                    <!--Block-->
+                    <div class="fact-block col-xl-3 col-lg-3 col-md-6 col-sm-12">
+                        <div class="inner">
+                            <div class="count"><span class="odometer" data-count="02"></span>k+</div>
+                            <div class="fact-title"><span>Top Hosts</span></div>
+                        </div>
+                    </div>
+                    <!--Block-->
+                    <div class="fact-block col-xl-3 col-lg-3 col-md-6 col-sm-12">
+                        <div class="inner">
+                            <div class="count"><span class="odometer" data-count="50"></span>+</div>
+                            <div class="fact-title"><span>Top Country</span></div>
+                        </div>
+                    </div>
+                    <!--Block-->
+                    <div class="fact-block col-xl-3 col-lg-3 col-md-6 col-sm-12">
+                        <div class="inner">
+                            <div class="count"><span class="odometer" data-count="10"></span>k+</div>
+                            <div class="fact-title"><span>Client Avilable</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--End Facts Section -->
+<!--FAQs Section-->
+<section class="faq-one tracking-page">
+    <div class="floated-icon left"><img src="images/resource/stones-left.svg" alt="" title=""></div>
+    <div class="floated-icon right"><img src="images/resource/floated-icon-right-2.svg" alt="" title=""></div>
+    <div class="auto-container">
+        <div class="title-box centered">
+            <h2><span>Get Some Important Answer</span></h2>
+        </div>
+        <div class="row clearfix">
+            <!--Text Col-->
+            <div class="text-col col-lg-6 col-md-12 col-sm-12">
+                <div class="inner wow fadeInLeft" data-wow-duration="1500ms" data-wow-delay="0ms">
+                    <div class="accordion-box clearfix">
+                        <!--Block-->
+                        <div class="accordion block active-block">
+                            <div class="acc-btn active">What is Trekking? <i class="fa-regular fa-angle-down"></i></div>
+                            <div class="acc-content">
+                                <div class="content">
+                                    <div class="text">One of the major benefits of trekking is that it improves your physical health immensely. Spending multiple hours on the trail, climbing around boulders, rock hopping and ascending hills gives your whole body a workout, improving your strength, agility and cardio fitness.</div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--Block-->
+                        <div class="accordion block">
+                            <div class="acc-btn">What do I need to carry? <i class="fa-regular fa-angle-down"></i></div>
+                            <div class="acc-content">
+                                <div class="content">
+                                    <div class="text">One of the major benefits of trekking is that it improves your physical health immensely. Spending multiple hours on the trail, climbing around boulders, rock hopping and ascending hills gives your whole body a workout, improving your strength, agility and cardio fitness.</div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--Block-->
+                        <div class="accordion block">
+                            <div class="acc-btn">How concerned should I be about the altitude? <i class="fa-regular fa-angle-down"></i></div>
+                            <div class="acc-content">
+                                <div class="content">
+                                    <div class="text">One of the major benefits of trekking is that it improves your physical health immensely. Spending multiple hours on the trail, climbing around boulders, rock hopping and ascending hills gives your whole body a workout, improving your strength, agility and cardio fitness.</div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--Block-->
+                        <div class="accordion block">
+                            <div class="acc-btn">What do we eat and drink while on trek? <i class="fa-regular fa-angle-down"></i></div>
+                            <div class="acc-content">
+                                <div class="content">
+                                    <div class="text">One of the major benefits of trekking is that it improves your physical health immensely. Spending multiple hours on the trail, climbing around boulders, rock hopping and ascending hills gives your whole body a workout, improving your strength, agility and cardio fitness.</div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <!--Image Col-->
+            <div class="image-col col-lg-6 col-md-12 col-sm-12">
+                <div class="inner wow fadeInRight" data-wow-duration="1500ms" data-wow-delay="0ms">
+                    <div class="image-box">
+                        <img src="images/resource/faq-image-1.svg" alt="" title="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

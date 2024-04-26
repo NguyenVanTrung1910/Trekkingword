@@ -1,0 +1,32 @@
+﻿@model IEnumerable<TourWeb.Models.Product>
+
+@foreach(var product in Model)
+{
+    <div class="prod-block col-xl-3 col-lg-4 col-md-6 col-sm-12">
+        <div class="inner-box">
+            <div class="why-block">
+                <div class="image-box">
+                    <div class="image"><a href="/shop/ProductDetail/@product.Id"><img src="/images/@product.ImagesSpecial" alt="" style="height:248px;width:270px"></a></div>
+                    <div class="hvr-box">
+                        <div class="hvr-inner">
+                            <div class="hvr-content">
+                                <div class="link"><a href="/shop/Addcart/@product.Id" class="theme-btn"><i class="far fa-shopping-cart"></i> Add To Cart</a></div>
+                                <div class="link"><a href="/shop/ProductDetail/@product.Id" class="theme-btn"><i class="far fa-bars"></i> Details</a></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="add-fav"><a href="product-single.html" class="theme-btn"><i class="far fa-heart"></i></a></div>
+                </div>
+                <div class="lower-box">
+                    <h5><a href="/shop/ProductDetail/@product.Id">@product.Name</a></h5>
+                    <div class="price"><span>$@product.Price</span></div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+}
+
+
+            
+

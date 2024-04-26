@@ -1,0 +1,154 @@
+﻿@model List<TourWeb.Models.CartDetail>
+@inject Microsoft.AspNetCore.Http.IHttpContextAccessor access
+<!--Cart Section-->
+<section class="cart-section">
+    <div class="auto-container">
+        <!--Cart Outer-->
+        <div class="cart-outer">
+            <div class="table-outer">
+                <div class="table-box">
+                    <table class="cart-table">
+                        <thead class="cart-header">
+                            <tr>
+                                <th>&nbsp;</th>
+                                <th class="prod-column">Product</th>
+                                <th class="price">Price</th>
+                                <th>Quantity</th>
+                                <th>SubTotal</th>
+                                <th>&nbsp;</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                        @if (access.HttpContext.Session.GetString("name") == null)
+                        {
+                            if(ViewBag.Cart != null)
+                            {
+                                foreach (var a in ViewBag.Cart)
+                                {
+                                    @foreach (var pro in ViewBag.Product)
+                                    {
+                                        if (pro.Id == a.ProductId)
+                                        {
+                                            <tr>
+                                                <td colspan="2" class="prod-column">
+                                                    <div class="column-box">
+                                                    <figure class="prod-thumb"><a href="#"><img src="/images/@pro.ImagesSpecial" alt="" style="height:200px;width:200px"></a></figure>
+                                                        <h4 class="prod-title">@pro.Name</h4>
+                                                    </div>
+                                                </td>
+                                                <td class="price n-price" >$@pro.Price</td>
+                                                <td class="qty">
+                                                    <div class="quantity-box">
+                                                        <div class="item-quantity">
+                                                        <input class="qty-spinner quantity" type="text" value="@a.Quantity" name="quantity" >
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td class="sub-total colSub"></td>
+                                                <td class="remove"><a href="/shop/removeCart/@pro.Id" class="remove-btn"><span class="far fa-times"></span></a></td>
+                                            </tr>
+                                        }
+                                    }
+                                }
+
+
+                            }else
+                            {
+                                    <h1>No Product</h1>
+                                }
+
+
+                        }else
+                        {
+                            if(Model != null)
+                            {
+                                foreach (var a in Model)
+                                {
+                                    @foreach (var pro in ViewBag.Product)
+                                    {
+                                        if (a.Carts != null)
+                                        {
+                                            if (pro.Id == a.Carts.AccountId)
+                                            {
+                                                <tr>
+                                                    <td colspan="2" class="prod-column">
+                                                        <div class="column-box">
+                                                            <figure class="prod-thumb"><a href="#"><img src="/images/@pro.ImagesSpecial" alt="" style="height:200px;width:200px"></a></figure>
+                                                            <h4 class="prod-title">@pro.Name</h4>
+                                                        </div>
+                                                    </td>
+                                                    <td class="price n-price" >$@pro.Price</td>
+                                                    <td class="qty">
+                                                        <div class="quantity-box">
+                                                            <div class="item-quantity">
+                                                                <input class="qty-spinner quantity" type="text" value="@a.Quantity" name="quantity" >
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                        <td class="sub-total colSub" ></td>
+                                                    <td class="remove"><a href="/shop/removeCart/@a.Id" class="remove-btn"><span class="far fa-times"></span></a></td>
+                                                </tr>
+                                            }
+                                        }
+                                            
+                                    }
+                                }
+                            }
+                            else
+                            {
+                                <h1>No Product</h1>
+                            }
+                                
+                        }
+                            
+
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="coupon-outer">
+                    <div class="content-box clearfix">
+                        <div class="apply-coupon clearfix">
+                            <div class="form-group clearfix">
+                                <input type="text" name="coupon-code" value="" placeholder="Apply coupon">
+                            </div>
+                            <div class="form-group clearfix">
+                                <button type="button" class="theme-btn coupon-btn btn-style-two"><span class="btn-title">Apply Coupon</span></button>
+                            </div>
+                        </div>
+                        <div class="link-box">
+                            <a href="/shop/ShopCart"><button type="button" class="theme-btn cart-btn"><span>Update Cart</span></button></a>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="totals-column clearfix">
+                <div class="inner">
+                    <div class="cart-total">
+                        <h3 class="title">Cart Totals</h3>
+                        <!--Totals Table-->
+                        <ul class="totals-table">
+                            <li class="clearfix">
+                                <span class="col col-title">Subtotal</span>
+                                <span class="col" id="sub"></span>
+                            </li>
+                            <li class="clearfix"><span class="col col-title">Total</span><span class="col total-price" id="total"></span></li>
+                            @if (access.HttpContext.Session.GetString("name") == null)
+                            {
+                                <li class="clearfix"><a href="/account/login"><button type="submit" class="theme-btn btn-style-two" id="checkout"><span>Checkout</span></button><a /></li>
+                            }
+                            else
+                            {
+                                <li class="clearfix"><a href="/shop/checkout"><button type="submit" class="theme-btn btn-style-two" id="checkout"><span>Checkout</span></button><a /></li>
+                            }
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Cart Section-->

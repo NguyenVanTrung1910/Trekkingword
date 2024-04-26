@@ -1,0 +1,55 @@
+﻿@model IEnumerable<TourWeb.Models.Trekking>
+<section class="popular-section">
+    <div class="bg-layer" style="background-image: url(/images/background/image-1.jpg);"></div>
+    <div class="auto-container">
+        <div class="title-box centered">
+            <div class="subtitle">Modern & Beautiful</div>
+            <h2><i class="bg-vector"></i><span>Our Most Popular Trekking</span></h2>
+        </div>
+        <div class="carousel-box">
+            <div class="popular-carousel owl-theme owl-carousel">
+                @foreach (var trekking in Model)
+                {
+                    <div class="trek-block-one">
+                        <div class="inner-box">
+                            <div class="image-box">
+                                <div class="image"><a href="/page/TrekkingDetail/@trekking.Id"><img src="/images/@trekking.ImageSpecial" alt="" title="" style="height:290px;width:308px"></a></div>
+                                <div class="price"><span>$@trekking.Price</span></div>
+                                <div class="info">
+                                    <span class="i-block"><i class="icon far fa-clock"></i>@trekking.Duration </span> &ensp; | &ensp; <span class="i-block">@trekking.Address</span>
+                                </div>
+                            </div>
+                            <div class="lower-content">
+                                <h4><a href="/page/TrekkingDetail/@trekking.Id">@trekking.Name</a></h4>
+                                <div class="ratings clearfix">
+                                    <div class="stars">
+                                        @for (var a = 1; a <= @trekking.Review; a++)
+                                        {
+                                            <i class="fa fa-star"></i>
+                                        }
+                                        @for (var a = 1; a <= 6 - @trekking.Review; a++)
+                                        {
+                                            <i class="fa fa-star empty"></i>
+                                        }
+                                    </div>
+                                    <div class="rev"><a href="#">@trekking.Review Review</a></div>
+                                </div>
+                                <div  class="text">@trekking.Description </div>
+                            </div>
+                            <div class="bottom-box clearfix">
+                                <div class="more-link"><a href="/page/packages" class="theme-btn"><span>View Details <i class="icon"><img src="/images/icons/logo-icon.svg" alt=""></i></span></a></div>
+                                <div class="video-link"><a href="/page/packages" class="theme-btn"><i class="icon far fa-video-camera"></i></a></div>
+                            </div>
+                        </div>
+                    </div>
+                }
+
+
+
+            </div>
+        </div>
+    </div>
+</section>
+
+
+

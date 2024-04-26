@@ -1,0 +1,46 @@
+﻿
+<section class="login-section">
+    <div class="auto-container">
+        <div class="form-box site-form">
+            <div class="login-form">
+                <h5>Login In</h5>
+                <form method="post" action="/Account/login">
+                    <div class="row clearfix">
+                        <div class="form-group col-lg-12 col-md-12 col-sm-12">
+                            <div class="f-label">Email Address <i>*</i></div>
+                            <div class="field-inner">
+                                <input type="email" name="email" placeholder="" required>
+                            </div>
+                        </div>
+                        <div class="form-group col-lg-12 col-md-12 col-sm-12">
+                            <div class="f-label">Password <i>*</i></div>
+                            <div class="field-inner">
+                                <input type="password" name="password" placeholder="" required>
+                            </div>
+                        </div>
+                        <div class="form-group col-lg-12 col-md-12 col-sm-12">
+                            <div class="field-inner clearfix">
+                                        
+                                <div class="forgot-pass">
+                                    <a href="/account/resetpassword">Forgot your password? </a>
+                                </div>
+                                <div class="forgot-pass" style="float:left">
+                            <a href="/account/loginfacebook">Log in with Facebook? </a>
+                                </div>
+                            </div>
+                                    
+                        </div>
+
+                        <div class="form-group col-lg-12 col-md-12 col-sm-12">
+                            <button type="submit" class="theme-btn btn-style-two"><span>Login In<i class="icon far fa-angle-right"></i></span></button>
+                        </div>
+                        <h4 style="text-align:center;color:red">@ViewBag.Alert</h4>
+                    </div>
+                </form>
+            </div>
+
+            <div class="lower-link">Don't have a account? <a href="/account/signup">Sign Up</a> Now</div>
+
+        </div>
+    </div>
+</section>

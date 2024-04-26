@@ -1,0 +1,82 @@
+﻿@model List<TourWeb.Models.Product>
+
+
+
+<section class="products-section products-page">
+    <div class="floated-icon left"><img src="/images/resource/stones-left.svg" alt="" title=""></div>
+    <div class="floated-icon right"><img src="/images/resource/stones-right.svg" alt="" title=""></div>
+    <div class="floated-icon right-2"><img src="/images/resource/plant-icon.svg" alt="" title=""></div>
+    <div class="auto-container">
+
+        <div class="title-box centered">
+            <h2><span>Featured Trekking Products</span></h2>
+            <div class="text">Since 2014, we’ve helped more than 500,000 people of all ages enjoy the best outdoor experience of their lives. Whether it’s for one day or a two-week vacation, close to home or a foreign land.</div>
+        </div>
+
+        <div class="filters-row clearfix">
+            <div class="cat-links">
+                <ul class="clearfix type">
+                    <li><a  class="active">All</a></li>
+                    <li><a >Clothing</a></li>
+                    <li><a >Suitcase</a></li>
+                    <li><a >Bag</a></li>
+                    <li><a >Helmet</a></li>
+                    <li><a >Rope</a></li>
+                    <li><a >Mug</a></li>
+                    <li><a>Climbing stricks</a></li>
+                </ul>
+            </div>
+            <div class="sort-by">
+                <div class="drop-list-one">
+                    <div class="inner clearfix">
+                        <div class="dropdown-outer open">
+                            <a class="btn-box dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" href="#">Default sorting</a>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                                <li><a class="lowToHigh">Price: Low To High</a></li>
+                                <li><a class="highToLow">Price: High to Low</a></li>
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row clearfix allproduct">
+            <!--Block-->
+            @foreach(var product in Model)
+            {
+                <div class="prod-block col-xl-3 col-lg-4 col-md-6 col-sm-12">
+                    <div class="inner-box">
+                        <div class="why-block">
+                            <div class="image-box">
+                                <div class="image"><a href="#"><img src="/images/@product.ImagesSpecial" style="height:248px;width:270px"></a></div>
+                                <div class="hvr-box">
+                                    <div class="hvr-inner">
+                                        <div class="hvr-content">
+                                            <div class="link"><a href="/shop/addCart/@product.Id" class="theme-btn id"><i class="far fa-shopping-cart"></i> Add To Cart</a></div>
+                                            <div class="link"><a href="/shop/ProductDetail/@product.Id" class="theme-btn"><i class="far fa-bars"></i> Details</a></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="add-fav"><a href="/shop/AddWish/@product.Id" class="theme-btn"><i class="far fa-heart"></i></a></div>
+                            </div>
+                            <div class="lower-box">
+                                <h5 class ="nameproduct">
+                                    <a href="#">@product.Name</a></h5>
+                                <div class="price"><span>$@product.Price</span></div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            }
+            
+
+
+
+        </div>
+
+    </div>
+</section>
+

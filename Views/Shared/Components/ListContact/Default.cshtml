@@ -1,0 +1,40 @@
+﻿@model IEnumerable<TourWeb.Models.Contact>
+@{
+    Random rand = new Random();
+    var indexImage = "/images/resource/testi-thumb-"+rand.Next(1, 2)+".jpg";
+}
+<section class="testimonials-one">
+    <div class="bg-layer" style="background-image: url(/images/background/image-3.jpg);"></div>
+    <div class="auto-container">
+        <div class="title-box centered">
+            <div class="subtitle">Review & Testimonial</div>
+            <h2><i class="bg-vector"></i><span>Top Reviews for Treker</span></h2>
+        </div>
+        <div class="carousel-box">
+            <div class="testi-carousel owl-theme owl-carousel">
+                <!--Testi Block-->
+                @foreach(var contact in Model)
+                {
+                    <div class="testi-block">
+                        <div class="inner-box">
+                            <div class="icon"><img src="/images/icons/quotes-1.svg" alt=""></div>
+                            <div class="image"><img src="@indexImage" alt=""></div>
+                            <div class="text">@contact.Message</div>
+                            <div class="info">
+                                <div class="name">@contact.NameUser</div>
+                                <div class="clearfix">
+                                    <div class="designation">Women's Trainner</div>
+                                    <div class="rating"><div class="stars"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></div></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+                
+
+
+
+            </div>
+        </div>
+    </div>
+</section>

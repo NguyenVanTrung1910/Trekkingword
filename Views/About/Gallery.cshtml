@@ -1,0 +1,120 @@
+﻿@model List<TourWeb.Models.Trekking>
+<!--Gallery Section-->
+<section class="gallery-section">
+    <div class="floated-icon"><img src="/images/resource/floated-icon-right-2.svg" alt="" title=""></div>
+    <div class="auto-container">
+        <div class="title-box centered">
+            <h2><span>See Our Latest Gallery</span></h2>
+            <div class="text">Since 2014, we’ve helped more than 500,000 people of all ages enjoy the best outdoor experience of their lives. Whether it’s for one day or a two-week vacation, close to home or a foreign land.</div>
+        </div>
+    </div>
+    <!--MixitUp Galery-->
+    <div class="mixitup-gallery">
+        <div class="auto-container">
+            <!--Filter-->
+            <div class="gallery-filters centered clearfix">
+                <ul class="filter-tabs filter-btns clearfix">
+                    <li class="active filter" data-role="button" data-filter="all">All</li>
+                    <li class="filter" data-role="button" data-filter=".trekkings">Trekiings</li>
+                    <li class="filter" data-role="button" data-filter=".tours">Tours</li>
+                </ul>
+            </div>
+        </div>
+        <div class="outer-container">
+            <div class="filter-list row clearfix">
+                @foreach(var trekking in Model)
+                {
+                    <div class="gallery-block mix trekkings col-xl-4 col-lg-4 col-md-6 col-sm-12">
+                        <div class="inner-box" style="height:431px;width:583px">
+
+                            <img src="/images/@trekking.ImageSpecial" alt="" title="" height="431" width="583">
+                            
+                            <a href="/images/@trekking.ImageSpecial" class="lightbox-image zoom-btn" data-fancybox="gallery"><span class="icon"><img src="/images/icons/zoom-icon.svg" alt="" title=""></span></a>
+                        </div>
+                    </div>
+                }
+                @foreach(var tour in ViewBag.Tour)
+                {
+                    <div class="gallery-block mix tours col-xl-4 col-lg-4 col-md-6 col-sm-12">
+                        <div class="inner-box" style="height:431px;width:583px">
+                            
+                                <img src="/images/@tour.ImageSpecial" alt="" title="" height="431" width="583">
+
+                            <a href="/images/@tour.ImageSpecial" class="lightbox-image zoom-btn" data-fancybox="gallery"><span class="icon"><img src="/images/icons/zoom-icon.svg" alt="" title=""></span></a>
+                        </div>
+                    </div>
+                }
+
+            </div>
+
+            <div class="load-more"><a href="#" class="theme-btn btn-style-one"><span>Load More......</span></a></div>
+        </div>
+    </div>
+</section>
+
+<!--Sponsors Section-->
+<section class="sponsors-one">
+    <div class="auto-container">
+        <div class="carousel-box">
+            <div class="sponsors-carousel owl-theme owl-carousel">
+                <!--Block-->
+                <div class="sponsor-block">
+                    <div class="inner-box">
+                        <div class="image"><a href="#"><img src="/images/resource/sponsor-1.png" alt=""></a></div>
+                    </div>
+                </div>
+
+                <!--Block-->
+                <div class="sponsor-block">
+                    <div class="inner-box">
+                        <div class="image"><a href="#"><img src="/images/resource/sponsor-2.png" alt=""></a></div>
+                    </div>
+                </div>
+
+                <!--Block-->
+                <div class="sponsor-block">
+                    <div class="inner-box">
+                        <div class="image"><a href="#"><img src="/images/resource/sponsor-3.png" alt=""></a></div>
+                    </div>
+                </div>
+
+                <!--Block-->
+                <div class="sponsor-block">
+                    <div class="inner-box">
+                        <div class="image"><a href="#"><img src="/images/resource/sponsor-4.png" alt=""></a></div>
+                    </div>
+                </div>
+
+                <!--Block-->
+                <div class="sponsor-block">
+                    <div class="inner-box">
+                        <div class="image"><a href="#"><img src="/images/resource/sponsor-1.png" alt=""></a></div>
+                    </div>
+                </div>
+
+                <!--Block-->
+                <div class="sponsor-block">
+                    <div class="inner-box">
+                        <div class="image"><a href="#"><img src="/images/resource/sponsor-2.png" alt=""></a></div>
+                    </div>
+                </div>
+
+                <!--Block-->
+                <div class="sponsor-block">
+                    <div class="inner-box">
+                        <div class="image"><a href="#"><img src="/images/resource/sponsor-3.png" alt=""></a></div>
+                    </div>
+                </div>
+
+                <!--Block-->
+                <div class="sponsor-block">
+                    <div class="inner-box">
+                        <div class="image"><a href="#"><img src="/images/resource/sponsor-4.png" alt=""></a></div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+
